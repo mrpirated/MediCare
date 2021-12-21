@@ -1,38 +1,24 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap");
+:root {
+	--color1: #420516;
+	--color2: #7d1935;
+	--color3: #b42b51;
+	--color4: #e63e6d;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+	--bgColor1: rgb(180, 232, 233);
+	--bgColor2: rgb(134, 233, 235);
+	--bgColor3: rgb(123, 228, 241);
+	--bgColor4: rgb(99, 226, 243);
+	--bgColor5: rgb(164, 231, 240);
+	--bgColor6: rgba(34, 193, 195, 0.7);
+	--bgColor7: rgba(187, 187, 187, 0.9);
+	--bgColor8: rgb(34, 193, 195);
+	--bgColor9: rgba(34, 193, 195, 1);
+	--bgColor10: rgba(253, 187, 45, 1);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	--boxShadow: rgba(187, 187, 187, 0.2);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+	background: var(--bgColor1);
+	font-family: "work sans";
 }
