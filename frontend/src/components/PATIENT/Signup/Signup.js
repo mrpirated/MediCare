@@ -4,7 +4,7 @@ import signupAPI from "../../../api/signupAPI";
 import verifyAPI from "../../../api/verifyAPI";
 import { useHistory } from "react-router";
 import DatePicker from "react-datepicker";
-import format from "date-fns/format";
+import moment from "moment";
 import DateFnsUtils from "@date-io/date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -39,7 +39,7 @@ function Signup(props) {
 		// setopenPopup(true);
 		// console.log("true");
 		if (validateForm() && password === confirmPassword) {
-			const dobSend = format(dob, "yyyy-MM-dd");
+			const dobSend = moment(dob).format("yyyy-MM-DD");
 			signupAPI({
 				first_name,
 				last_name,
@@ -67,7 +67,7 @@ function Signup(props) {
 		// setopenPopup(true);
 		// console.log("true");
 		if (validateForm() && password === confirmPassword) {
-			const dobSend = format(dob, "yyyy-MM-dd");
+			const dobSend = moment(dob).format("yyyy-MM-DD");
 			verifyAPI({
 				first_name,
 				last_name,
