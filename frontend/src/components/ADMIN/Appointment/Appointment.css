@@ -1,0 +1,20 @@
+.Appointment-AddCard {
+	cursor: pointer;
+	opacity: 0.9;
+	transform: scale(1.1);
+}
+.Appointment-AddCard:hover {
+	opacity: 1;
+	transform: scale(1.12);
+	transition-duration: 0.25s;
+}
+.Appointment-Card {
+	cursor: pointer;
+	opacity: 0.6;
+	background-color: aquamarine;
+}
+.Appointment-Card:hover {
+	opacity: 0.75;
+	transform: scale(1.05);
+	transition-duration: 0.25s;
+}

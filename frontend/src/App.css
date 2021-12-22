@@ -22,3 +22,178 @@ body {
 	background: var(--bgColor1);
 	font-family: "work sans";
 }
+.navbar {
+	background-color: var(--bgColor2);
+}
+#card {
+	width: 18rem;
+	margin: 1.5rem;
+	display: inline-block;
+}
+#card .doctor {
+	background-color: var(--bgColor3);
+}
+#card .appointment-addcard {
+	height: 10rem;
+	font-size: 75%;
+	background-color: var(--bgColor3);
+	color: black;
+	/* display: inline-block; */
+
+	cursor: pointer;
+	opacity: 0.9;
+}
+#card .appointment-addcard:hover {
+	opacity: 1;
+	transform: scale(1.12);
+	transition-duration: 0.25s;
+}
+#card .appointment {
+	height: 10rem;
+	font-size: 75%;
+	background-color: var(--bgColor3);
+	color: black;
+	/* display: inline-block; */
+
+	cursor: pointer;
+	opacity: 0.8;
+}
+#card .appointment:hover {
+	opacity: 0.9;
+	transform: scale(1.05);
+	transition-duration: 0.25s;
+}
+#card .records {
+	background-color: rgb(123, 228, 241);
+}
+#card .records:hover {
+	transform: scale(1.05);
+}
+.card-text {
+	font-size: 16px;
+}
+.card-header {
+	font-size: 20px;
+}
+.modal-header {
+	background-color: var(--bgColor4);
+}
+.modal-body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: var(--bgColor5);
+}
+.availability {
+	margin: auto;
+	text-align: center;
+	font-family: "open sans", sans-serif;
+	padding: 2rem 0;
+	margin: 0;
+	font-size: 2rem;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 2rem;
+	max-width: 100%;
+}
+
+.row input {
+	width: 80%;
+	box-sizing: border-box;
+	border: black 1px;
+	font-size: 1.3rem;
+	padding-left: 1.5rem;
+	padding-bottom: 1rem;
+	box-shadow: inset -2px -2px 0px 0px var(--boxShadow);
+	transition: box-shadow 0.2s ease-in;
+}
+.row label {
+	font-size: 18px;
+	font-weight: 100;
+}
+.row input:focus {
+	box-shadow: inset -3px -3px 0px 0px var(--bgColor6);
+	outline: none;
+}
+
+.row input::-webkit-input-placeholder {
+	opacity: 1;
+	transition: opacity 0.25s ease-out;
+}
+
+.row input:focus::-webkit-input-placeholder {
+	opacity: 0;
+}
+
+.row label {
+	align-self: start;
+	padding-left: 4.5rem;
+	padding-bottom: 0.5rem;
+	color: var(--bgColor7);
+}
+
+.row button {
+	border-radius: 25px;
+	width: 80%;
+	height: 40px;
+	font-size: 1.3rem;
+	color: white;
+	font-weight: 700;
+	background: var(--bgColor3);
+	border: 0px;
+	cursor: pointer;
+	transition: opacity 0.25s ease-out;
+}
+
+.row button:hover {
+	opacity: 0.8;
+}
+
+.availability form {
+	margin: 0 auto;
+	max-width: 320px;
+	width: 75%;
+}
+html {
+	font-size: 100%;
+}
+.sidebar {
+	position: relative;
+	width: 200px;
+	min-height: 600px;
+	background: var(--bgColor4);
+	padding: 48px 0 0;
+	box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.date-picker {
+	text-align: center;
+}
+#signupform {
+	max-width: 500px;
+	min-width: 300px;
+	width: 30%;
+	margin: 100px auto;
+	background-color: #ffffff;
+	border-radius: 25px;
+}
+
+#headerTitle {
+	text-align: center;
+	font-family: "open sans", sans-serif;
+	padding: 2rem 0;
+	margin: 0;
+	font-size: 2rem;
+}
+
+#loginform {
+	max-width: 500px;
+	min-width: 300px;
+	max-height: 700px;
+	width: 30%;
+	height: 60%;
+	margin: 100px auto;
+	background-color: #ffffff;
+	border-radius: 25px;
+}

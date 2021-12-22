@@ -1,6 +1,6 @@
 import connection from "../../dbconn/db";
 import dotenv from "dotenv";
-import moment from "moment-timezone";
+import moment from "moment";
 import { scheduleAppointment } from "../helpers";
 dotenv.config();
 

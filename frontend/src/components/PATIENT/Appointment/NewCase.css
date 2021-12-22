@@ -1,0 +1,16 @@
+@media all {
+	.NewCase {
+		padding: 60px 0;
+	}
+
+	.FormHeading {
+		text-align: center;
+		padding-bottom: 2%;
+	}
+
+	.NewCase form {
+		margin: 0 auto;
+		/* max-width: 320px; */
+		width: 80%;
+	}
+}
