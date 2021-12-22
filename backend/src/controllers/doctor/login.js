@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const bcrypt = require("bcrypt");
 
-const login = (req, res) => {
+const login = async (req, res) => {
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
 		console.log(errors);
@@ -17,19 +17,17 @@ const login = (req, res) => {
 	try {
 		const { email, password } = req.body;
 		var q = connection.query(
-			"SELECT * FROM patient WHERE email = ?",
+			"SELECT * FROM doctor WHERE email = ?",
 			email,
 			(err, result, fields) => {
 				//console.log("jere");
 				if (err) {
-					console.log(err);
 					return res.status(210).send({
 						msg: err,
 					});
 				}
 
 				if (result[0]) {
-					//console.log(result[0]);
 					bcrypt.compare(password, result[0].password, (bErr, bResult) => {
 						if (bErr) {
 							return res.status(209).send({
@@ -41,7 +39,7 @@ const login = (req, res) => {
 							const token = jwt.sign(
 								{
 									user: {
-										patient_id: result[0].patient_id,
+										doctor_id: result[0].doctor_id,
 										first_name: result[0].first_name,
 										last_name: result[0].last_name,
 										dob: result[0].dob,
@@ -50,7 +48,7 @@ const login = (req, res) => {
 										email: result[0].email,
 										phone: result[0].phone,
 									},
-									type: 0,
+									type: 1,
 									//password: result[0].password,
 								},
 								process.env.SECRET_KEY,
@@ -58,12 +56,12 @@ const login = (req, res) => {
 									expiresIn: "30d",
 								}
 							);
-							//console.log(token);
+
 							return res.status(200).send({
 								msg: "Logged in!",
 								token,
 								user: result[0],
-								type: 0,
+								type: 1,
 							});
 						}
 						return res.status(209).send({

@@ -5,7 +5,7 @@ import { check, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
-import login_patient from "../../controllers/patient/login";
+import login_doctor from "../../controllers/doctor/login";
 const bcrypt = require("bcrypt");
 
 router.post(
@@ -16,7 +16,7 @@ router.post(
 			min: 6,
 		}),
 	],
-	login_patient
+	login_doctor
 );
 
 export default router;

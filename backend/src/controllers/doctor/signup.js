@@ -27,7 +27,7 @@ const signup = async (req, res) => {
 		};
 
 		connection.query(
-			"SELECT * FROM patient WHERE email = ?",
+			"SELECT * FROM doctor WHERE email = ?",
 			value.email,
 			async (err, result) => {
 				if (result[0]) {
@@ -40,7 +40,7 @@ const signup = async (req, res) => {
 					console.log(value.password);
 					var patient_id;
 					var q = connection.query(
-						"INSERT INTO patient SET ?",
+						"INSERT INTO doctor SET ?",
 						value,
 						(err, result, fields) => {
 							if (err) {

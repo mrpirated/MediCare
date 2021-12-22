@@ -16,7 +16,6 @@ connection.connect(function (err) {
 		debug("Database connection failed: " + err.stack);
 		return;
 	}
-
 	debug("Connected to database.");
 });
 
