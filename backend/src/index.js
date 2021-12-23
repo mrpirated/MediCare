@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import patient from "./routes/patient/patient";
 import doctor from "./routes/doctor/doctor";
+import token from "./routes/token";
 import dbg from "debug";
 import connection from "./dbconn/db";
 const debug = dbg("http");
@@ -21,7 +22,7 @@ app.use(cors());
 
 app.use(json({ extended: false }));
 
-app.use("/api", patient, doctor, admin);
+app.use("/api", patient, doctor, admin, token);
 app.use("/", (req, res) => {
 	res.send("Server is Running");
 });
