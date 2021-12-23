@@ -1,10 +1,10 @@
 import connection from "../../dbconn/db";
 import dotenv from "dotenv";
-
+import dbg from "debug";
 dotenv.config();
 
 import checkToken from "../../checkToken";
-
+const debug = dbg("api:doctor/schedule");
 export const get_doctor_schedule = async (req, res) => {
 	try {
 		const decodedData = checkToken(req.body.token);
@@ -56,6 +56,7 @@ export const post_doctor_schedule = async (req, res) => {
 			// console.log(req.body.schedule_date);
 			// console.log(req.body.schedule[0].start_time);
 			//console.log(req.body.schedule.length);
+			debug(req.body.schedule);
 			var record = [];
 			for (let index = 0; index < req.body.schedule.length; index++) {
 				var start_time =
