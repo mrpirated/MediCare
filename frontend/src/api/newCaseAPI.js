@@ -2,11 +2,12 @@ import axios from "axios";
 import config from "../config/config";
 
 const newCaseAPI = async (data) => {
-	const { token } = data;
+	const { token, case_description } = data;
 
 	return await axios
 		.post(config.baseUrl + config.patient + config.newcase, {
 			token: token,
+			case_description: case_description,
 		})
 		.then((res) => {
 			if (res.status === 200) {

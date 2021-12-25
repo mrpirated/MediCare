@@ -199,8 +199,9 @@ export const NewCase = async (req, res) => {
 		} else {
 			var values = {
 				patient_id: decodedData.user.patient_id,
+				case_description: req.body.case_description,
 			};
-			console.log(values);
+			//console.log(values);
 			connection.query(
 				"INSERT INTO cases SET ?",
 				values,
@@ -210,7 +211,7 @@ export const NewCase = async (req, res) => {
 							msg: err,
 						});
 					} else {
-						console.log(result);
+						//console.log(result);
 						return res.status(200).send({
 							msg: "Entered",
 							case_id: result.insertId,

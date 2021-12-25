@@ -1,54 +1,58 @@
-import React, {useState, useEffect} from "react";
-import {useHistory} from "react-router";
-import {useDispatch, useSelector} from "react-redux";
-import {Form, Button} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { Form, Button } from "react-bootstrap";
 import "./NewCase.css";
 import newCaseAPI from "../../../api/newCaseAPI";
 
 export default function NewCase() {
-    const auth = useSelector((state) => state.auth);
+	const auth = useSelector((state) => state.auth);
 	const history = useHistory();
-
-    function validateForm() {
-		return true;
-        //return email.length > 0 && password.length > 0;
+	const [case_description, setCase_description] = useState("");
+	function handleSubmit(event) {
+		event.preventDefault();
+		console.log(case_description);
+		newCaseAPI({
+			token: auth.token,
+			case_description: case_description,
+		}).then((res) => {
+			if (res.reply) {
+				const case_id = res.data.case_id;
+				history.push("/patient/new-appointment", { case_details: { case_id } });
+			} else {
+				alert(res.data.msg);
+			}
+		});
 	}
 
-    function handleSubmit(event) {   
-        event.preventDefault();
-        newCaseAPI({
-            token: auth.token
-        }).then((res) => {
-            if(res.reply){
-                const case_id = res.data.case_id;
-                history.push("/patient/new-appointment", {case_details: {case_id}});
-            }
-            else{
-                alert(res.data.msg);
-            }
-        })
-    }
+	return (
+		<div>
+			<div className='NewCase'>
+				<h3 className='FormHeading'>Enter Details For New Case</h3>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group className='mb-3'>
+						<Form.Label>Case Description</Form.Label>
+						<Form.Control
+							as='textarea'
+							rows={3}
+							placeholder='Enter case details in short'
+							onChange={(e) => setCase_description(e.target.value)}
+						/>
+					</Form.Group>
 
-    return (
-        <div>
-            <div className="NewCase">
-                <h3 className="FormHeading">Enter Details For New Case</h3>
-                <Form onSubmit = {handleSubmit}>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Example textarea</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
-                    </Form.Group>
-                    <div className="text-center" style={{paddingTop: "2rem"}}>
-                        <Button variant="outline-dark" block size="sm" className="NewCaseButton"  type='submit' disabled={!validateForm()}>
-                            Create Case And Book An Appointment
-                        </Button>
-                    </div>
-                </Form>
-            </div>
-        </div>
-    )
+					<div className='text-center' style={{ paddingTop: "2rem" }}>
+						<Button
+							variant='outline-dark'
+							block
+							size='sm'
+							className='NewCaseButton'
+							type='submit'
+						>
+							Create Case And Book An Appointment
+						</Button>
+					</div>
+				</Form>
+			</div>
+		</div>
+	);
 }
