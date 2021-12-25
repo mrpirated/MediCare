@@ -2,8 +2,9 @@ import connection from "../../dbconn/db";
 import dotenv from "dotenv";
 import { scheduleAppointment } from "../helpers";
 import moment from "moment";
+import dbg from "debug";
 dotenv.config();
-
+const debug = dbg("api:doctor/appointment");
 import checkToken from "../../checkToken";
 import { format } from "mysql";
 
@@ -195,11 +196,11 @@ export const setAvailability = async (req, res) => {
 							msg: err,
 						});
 					} else {
-						console.log(result);
-						console.log(req.body);
+						//debug(result);
+						//debug(req.body);
 						st = new Date(req.body.start_time);
 						et = new Date(req.body.end_time);
-						console.log(st + " " + et);
+						//console.log(st + " " + et);
 
 						for (var i = 0; i < result.length; i++) {
 							if (result[i].start_time <= st && result[i].end_time >= st) {
@@ -213,11 +214,11 @@ export const setAvailability = async (req, res) => {
 								et = result[i].start_time;
 							}
 						}
-						console.log(st + " " + et);
+						//console.log(st + " " + et);
 
 						if (st < et) {
 							connection.query(
-								"INSERT INTO schedule VALUES(?,?,?)",
+								"INSERT INTO schedule (doctor_id, start_time, end_time) VALUES(?,?,?)",
 								[decodedData.user.doctor_id, st, et],
 								(err, result, query) => {
 									if (err) {

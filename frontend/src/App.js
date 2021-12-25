@@ -21,7 +21,7 @@ function App() {
 	useEffect(() => {
 		const checktoken = async () => {
 			if (!auth.isauth && localStorage.getItem("token")) {
-				console.log("called");
+				//console.log("called");
 				await tokenAPI(JSON.parse(localStorage.getItem("token"))).then(
 					(res) => {
 						if (res.type === 2) {
