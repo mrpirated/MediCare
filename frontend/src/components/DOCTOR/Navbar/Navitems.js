@@ -9,11 +9,11 @@ const Navitems = [
 		path: "appointment",
 		url: "/doctor",
 	},
-	{
-		name: "Calendar",
-		path: "calendar",
-		url: "/doctor",
-	},
+	// {
+	// 	name: "Calendar",
+	// 	path: "calendar",
+	// 	url: "/doctor",
+	// },
 	{
 		name: "Availability",
 		path: "availability",

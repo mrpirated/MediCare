@@ -25,8 +25,6 @@ export default function Appointment() {
 			const end_date = format(nextDay, "yyyy-MM-dd");
 			const start_time = start_date + " " + "00:00:00";
 			const end_time = end_date + " " + "00:00:00";
-			console.log(start_time);
-			console.log(end_time);
 
 			await doctorAppointmentsAPI({
 				token: auth.token,

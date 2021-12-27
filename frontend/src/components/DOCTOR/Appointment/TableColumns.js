@@ -1,6 +1,6 @@
 export const columns = [
 	{
-		title: "Case Des",
+		title: "Case Description",
 		field: "case_id",
 	},
 	{

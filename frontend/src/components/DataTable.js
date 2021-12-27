@@ -21,7 +21,7 @@ export default function DataTable(props) {
 				</thead>
 				<tbody>
 					{props.data.map((d) => {
-						console.log(d);
+						//console.log(d);
 						return (
 							<tr>
 								{/* <td>{idx++}</td> */}
