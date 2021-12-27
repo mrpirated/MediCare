@@ -47,15 +47,17 @@ export default function Appointment() {
 
 	return (
 		<div>
-			<h5 style={{ margin: "2rem 2rem" }}>
-				{"Date: " + selecteddate.toString().slice(0, 10)}
-			</h5>
-			<DatePicker
-				selected={selecteddate}
-				onChange={(date) => {
-					setselecteddate(date);
-				}}
-			/>
+			<div>
+				<h5 style={{ margin: "2rem 2rem" }}>
+					{"Date: " + selecteddate.toString().slice(0, 10)}
+				</h5>
+				<DatePicker
+					selected={selecteddate}
+					onChange={(date) => {
+						setselecteddate(date);
+					}}
+				/>
+			</div>
 			<DataTable
 				columns={columns}
 				data={data}
