@@ -15,17 +15,12 @@
 	--bgColor8: rgb(34, 193, 195);
 	--bgColor9: rgba(34, 193, 195, 1);
 	--bgColor10: rgba(253, 187, 45, 1);
-	--bgColor11: rgb(18, 85, 173);
+	--bgColor11: rgb(29, 152, 253);
 
 	--boxShadow: rgba(187, 187, 187, 0.2);
 }
 body {
-	background: var(--bgColor1);
-	background-image: linear-gradient(
-		to bottom right,
-		var(--bgColor2),
-		var(--bgColor1)
-	);
+	background: var(--bgColor5);
 }
 .navbar {
 	background-color: var(--bgColor11);

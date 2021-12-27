@@ -4,6 +4,10 @@ export const columns = [
 		field: "case_id",
 	},
 	{
+		title: "Patient",
+		field: "patient_name",
+	},
+	{
 		title: "Start Time",
 		field: "start_time",
 	},

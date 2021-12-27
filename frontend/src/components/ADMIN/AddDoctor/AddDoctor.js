@@ -3,14 +3,17 @@ import { Form, Row, Col, Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 import "./Signup.css";
 import format from "date-fns/format";
-import DateFnsUtils from '@date-io/date-fns';
+import DateFnsUtils from "@date-io/date-fns";
 import "react-datepicker/dist/react-datepicker.css";
-import {KeyboardDatePicker , MuiPickersUtilsProvider } from '@material-ui/pickers';
+import {
+	KeyboardDatePicker,
+	MuiPickersUtilsProvider,
+} from "@material-ui/pickers";
 import addDoctorAPI from "../../../api/addDoctorAPI";
 import { useSelector } from "react-redux";
 
 function AddDoctor() {
-    const [first_name, setFirstName] = useState("");
+	const [first_name, setFirstName] = useState("");
 	const [last_name, setLastName] = useState("");
 	const [dob, setDob] = useState(new Date());
 	const [gender, setGender] = useState("PreferNotToSay");
@@ -22,8 +25,8 @@ function AddDoctor() {
 	const [flag, setFlag] = useState(false);
 	const history = useHistory();
 	const auth = useSelector((state) => state.auth);
-	
-    const validateForm = () => {
+
+	const validateForm = () => {
 		return (
 			first_name.length > 0 &&
 			email.length > 0 &&
@@ -32,7 +35,7 @@ function AddDoctor() {
 		);
 	};
 
-    const handleSubmit = (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault();
 		if (validateForm() && password === confirmPassword) {
 			setFlag(false);
@@ -48,11 +51,10 @@ function AddDoctor() {
 				phone,
 				password,
 			}).then((res) => {
-				if(res.reply){
-                    alert("Doctor Added Successfully!");
+				if (res.reply) {
+					alert("Doctor Added Successfully!");
 					history.push("/home");
-				}
-				else{
+				} else {
 					alert(res.data.msg);
 				}
 			});
@@ -61,29 +63,28 @@ function AddDoctor() {
 		}
 	};
 
-    return (
-        <div>
+	return (
+		<div>
 			<div className='Signup'>
-                <h3 className='FormHeading'>Enter Details of Doctor</h3>
+				<h3 className='FormHeading'>Enter Details of Doctor</h3>
 				<Form onSubmit={handleSubmit}>
-					<Row>
-						<Form.Group as={Col}>
-							<Form.Label>First Name</Form.Label>
-							<Form.Control
-								type='text'
-								value={first_name}
-								onChange={(e) => setFirstName(e.target.value)}
-							/>
-						</Form.Group>
-						<Form.Group as={Col}>
-							<Form.Label>Last Name</Form.Label>
-							<Form.Control
-								type='text'
-								value={last_name}
-								onChange={(e) => setLastName(e.target.value)}
-							/>
-						</Form.Group>
-					</Row>
+					<Form.Group>
+						<Form.Label>First Name</Form.Label>
+						<Form.Control
+							type='text'
+							value={first_name}
+							onChange={(e) => setFirstName(e.target.value)}
+						/>
+					</Form.Group>
+					<Form.Group>
+						<Form.Label>Last Name</Form.Label>
+						<Form.Control
+							type='text'
+							value={last_name}
+							onChange={(e) => setLastName(e.target.value)}
+						/>
+					</Form.Group>
+
 					<Form.Group size='lg' controlId='email'>
 						<Form.Label>Email</Form.Label>
 						<Form.Control
@@ -117,15 +118,15 @@ function AddDoctor() {
 						<MuiPickersUtilsProvider utils={DateFnsUtils}>
 							<KeyboardDatePicker
 								autoOk
-								variant="inline"
-								inputVariant="outlined"
-								format="dd/MM/yyyy"
+								variant='inline'
+								inputVariant='outlined'
+								format='dd/MM/yyyy'
 								value={dob}
 								onChange={(date) => setDob(date)}
 								InputAdornmentProps={{ position: "start" }}
 							/>
 						</MuiPickersUtilsProvider>
-						
+
 						{/* <DatePicker selected={dob} onChange={(date) => setDob(date)} /> */}
 					</Form.Group>
 					<Form.Group size='lg'>
@@ -162,7 +163,7 @@ function AddDoctor() {
 				</Form>
 			</div>
 		</div>
-    )
+	);
 }
 
 export default AddDoctor;

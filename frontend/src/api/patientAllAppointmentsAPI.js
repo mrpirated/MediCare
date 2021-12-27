@@ -18,7 +18,7 @@ const patientAllAppointmentsAPI = async (data) => {
 		)
 		.then((res) => {
 			if (res.status === 200) {
-				console.log(res.data.msg);
+				//console.log(res.data.msg);
 				//console.log(res.data.cases);
 				return {
 					reply: true,

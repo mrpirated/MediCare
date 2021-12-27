@@ -34,7 +34,7 @@ export default function MyAppointment(props) {
 		};
 
 		fetchData();
-		console.log(appointments);
+		//console.log(appointments);
 	}, []);
 	const onSelectAppointment = async (app) => {
 		setselectedAP(app);

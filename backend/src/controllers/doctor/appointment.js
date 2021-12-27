@@ -28,7 +28,18 @@ export const appointment = async (req, res) => {
 			if (req.query.start_time != undefined) {
 				//console.log(req.query);
 				var q = connection.query(
-					"SELECT * from appointment WHERE doctor_id=? AND start_time BETWEEN ? AND ?",
+					'SELECT\
+					c.case_description,\
+					CONCAT(p.first_name, " ", p.last_name) AS patient_name,\
+					a.start_time,\
+					a.end_time\
+				  FROM\
+					appointment a\
+					INNER JOIN cases c ON c.case_id = a.case_id\
+					INNER JOIN patient p ON p.patient_id = c.patient_id\
+				  WHERE\
+					a.doctor_id = ?\
+					AND a.start_time BETWEEN ? AND ?',
 					[
 						decodedData.user.doctor_id,
 						req.query.start_time,
