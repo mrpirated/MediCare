@@ -14,10 +14,10 @@ const Navitems = [
 		path: "records",
 		url: "/patient",
 	},
-	// {
-	// 	name: "Meeting",
-	// 	path: "meeting",
-	// 	url: "/patient",
-	// },
+	{
+		name: "Meeting",
+		path: "meeting",
+		url: "/patient",
+	},
 ];
 export default Navitems;

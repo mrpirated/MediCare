@@ -90,11 +90,11 @@ const Room = ({ roomName, room, handleLogout }) => {
 				participant={room.localParticipant}
 			/>
 
-			<Details
+			{/* <Details
 				participants={participants}
 				roomName={roomName}
 				participant={room.localParticipant}
-			/>
+			/> */}
 		</main>
 	);
 };
